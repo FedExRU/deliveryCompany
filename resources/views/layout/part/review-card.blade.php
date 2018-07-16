@@ -1,6 +1,6 @@
 <div class="review-card">
 	<div class="row align-items-md-end">
-		<div class="col-xs-12 offset-md-2 col-3">
+		<div class="col-xs-12 offset-md-2 col-sm-3">
 			<img src="{{ $imgSrc }}" height="100" width="100" alt="chris-pine-photo">
 		</div>
 		<div class="col-xs-12 col-sm-6">
