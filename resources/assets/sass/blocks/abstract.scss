@@ -1,0 +1,16 @@
+.abstract{
+	* a{
+		color: #bbb;
+		font-size: 60px;
+		transition: color .2s ease-in-out;
+		text-align: center;
+		display: block;
+		&:hover{
+			color: $black;
+		}
+	}
+}
+
+.title-abstract{
+	color: #aaa;
+}

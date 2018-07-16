@@ -1,0 +1,52 @@
+.footer-content{
+	min-height: 300px;
+	margin-top: 30px;
+}
+
+.copyright{
+	& *{
+		color: #212529 !important;
+	}
+	padding: 20px;
+	background-color: $body-bg;
+}
+
+.footer-wrapper{
+	padding-top: 15px;
+	margin-top: 60px;
+
+	& *{
+		color: $body-bg;
+	}
+	
+	& a{
+		transition: color .2s ease-in-out;
+	}
+
+	& a:hover{
+		&, & strong{
+			color: #aaa !important;
+		}
+	}
+
+	& ul a i{
+		margin-right: 15px;
+	}
+
+	& address i, & address + a i{
+		position: absolute;
+	    left: -5px;
+	    top: 6px;
+	}
+}
+
+@include media-breakpoint-down(xs){
+	address, address + a{
+		display: block;
+		text-align: center;
+		margin: 10px 0px;
+	}
+	address i, address + a i{
+		display: none !important;
+	}
+}

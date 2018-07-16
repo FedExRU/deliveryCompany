@@ -8,6 +8,21 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/fa-brands';
+@import '~@fortawesome/fontawesome-free/scss/fa-regular';
+@import '~@fortawesome/fontawesome-free/scss/fa-solid';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
+
+// Custom elements
+
+@import 'blocks/welcome';
+@import 'blocks/abstract';
+@import 'blocks/index-text';
+@import 'blocks/review-card';
+@import 'blocks/footer';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -1,0 +1,25 @@
+.primary-title{
+	color: $primary;
+	font-weight: bold;
+}
+
+.primary-text{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.secondary-text{
+	font-size: 12px;
+}
+
+.features{
+	padding: 30px;
+    background: $primary-light;
+    border-radius: 5%;
+}
+
+@include media-breakpoint-down(sm){
+	.causes{
+		margin-bottom: 20px;
+	}
+}

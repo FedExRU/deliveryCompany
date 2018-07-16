@@ -1,0 +1,35 @@
+.welcome{
+	background: url('/img/header.jpg') center no-repeat;
+	height: 500px;
+	position: relative;
+	&:before{
+		content: "";
+	    height: 100%;
+	    width: 100%;
+	    display: block;
+	    position: absolute;
+	    background: $black;
+	    opacity: .3;
+	}
+
+	& h1, & h2{
+		color: $white;
+		position: relative;
+		text-align: center;
+	}
+}
+
+@include media-breakpoint-down(lg){
+	.welcome h1{
+		font-size: 4rem;
+	}
+	.welcome h2{
+		font-size: 1.4rem;
+	}
+}
+
+@include media-breakpoint-down(xs){
+	.welcome h1{
+		font-size: 2rem;
+	}
+}

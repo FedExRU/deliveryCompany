@@ -1,0 +1,29 @@
+.review-card{
+	& img{
+		object-fit: cover;
+    	border-radius: 100%;
+	}
+}
+
+@include media-breakpoint-down(md){
+	.review-card{
+		margin-bottom: 20px;
+	}
+}
+
+@include media-breakpoint-down(xs){
+	.review-card{
+		& img{
+			display: block;
+			margin: 0 auto 15px auto;
+		}
+
+		& blockquote{
+			text-align: center;
+		}
+
+		& .blockquote-footer{
+			text-align: right;
+		}
+	}
+}

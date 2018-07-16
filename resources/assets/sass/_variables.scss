@@ -1,8 +1,48 @@
 
+// Container grid
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 319px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  xs: 400px,
+  sm: 540px,
+  md: 720px,
+  lg: 1000px,
+  xl: 1200px
+);
+
+
+
 // Body
 $body-bg: #f5f8fa;
+
+$primary-light: #007bff24;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+body .blockquote{
+	font-size: 14px;
+}
+
+body .nav-tel{
+    font-size: 18px;
+    margin-right: 20px;
+    & a{
+    	color: $body-bg;
+    	transition: color .2s ease-in-out;
+    	text-decoration: none;
+    }
+
+    & a:hover{
+    	color: #aaa;
+    }
+}
