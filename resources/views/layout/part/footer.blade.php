@@ -1,7 +1,7 @@
 <div class="footer-wrapper bg-dark">
 	<div class="footer-content">
 		<div class="container">
-			<div class="row align-items-md-end">
+			<div class="row align-items-md-end align-items-lg-start">
 				<div class="col-md-12 col-lg-4">
 					<h4><i class="fab fa-docker"></i> {{ config('app.name') }}</h4>
 					<p>
@@ -14,7 +14,7 @@
 					    <a class="nav-link" href="#"><i class="fas fa-building"></i> About</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#"><i class="fas fa-book"></i> <strong>Catalog</strong></a>
+						{!! Form::namedRoute('catalog.index', '<i class="fas fa-book"></i> <strong>Catalog</strong>', null, ['class' => 'nav-link']) !!}
 					  </li>
 					  <li class="nav-item">
 					    <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> News</a>

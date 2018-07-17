@@ -5,17 +5,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        {!! Form::namedRoute('home', 'Home', null, ['class' => 'nav-link']) !!}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Catalog</a>
+        {!! Form::namedRoute('catalog.index', '<strong>Catalog</strong>', null, ['class' => 'nav-link']) !!}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a href="#" class="nav-link">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
     <div class="nav-tel">

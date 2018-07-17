@@ -1,0 +1,36 @@
+.catalog-banner{
+	background: url(/img/777597.jpg) top no-repeat;
+    background-size: cover;
+	& .catalog-title-wrapper{
+		padding: 10px 15px;
+    	display: inline-block;
+    	float: left;
+    	clear: both;
+		& *{
+			color: $white;
+			margin: 0px;
+		}
+		&.success{
+			background: #007bff7a;
+		}
+		&.white{
+			background: $body-bg;
+
+			& *{
+				color: $gray-800;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(xl){
+	.catalog-banner{
+		height: 595px;
+	}
+}
+
+@media(max-width: 1400px){
+	.catalog-banner{
+		height: 500px;
+	}
+}

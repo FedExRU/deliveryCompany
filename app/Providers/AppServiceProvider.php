@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Collective\Html\FormFacade;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        FormFacade::macro('namedRoute', function($routeName, $htmlTitle = null, $attributes = null, $options = null)
+        {
+            $aBegin = '<a class = "'.$options['class'].(route($routeName) == url()->current() ? ' active' : '').'" href="'.route($routeName).'" >';
+            $aEnd = '</a>';
+            $title = $htmlTitle;
+
+            return  $aBegin.$title.$aEnd;
+        });
+
     }
 
     /**

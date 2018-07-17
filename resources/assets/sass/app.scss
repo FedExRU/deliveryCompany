@@ -17,11 +17,15 @@
 
 // Custom elements
 
+@import 'blocks/global';
 @import 'blocks/welcome';
 @import 'blocks/abstract';
 @import 'blocks/index-text';
 @import 'blocks/review-card';
 @import 'blocks/footer';
+@import 'blocks/catalog-banner';
+@import 'blocks/summer-sales';
+@import 'blocks/catalog-list';
 
 .navbar-laravel {
   background-color: #fff;

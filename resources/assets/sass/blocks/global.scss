@@ -1,0 +1,43 @@
+.btn-sale{
+	text-align: center;
+	transition: all .2s ease-in-out;
+	display: block;
+	color: $white;
+	padding: 10px 15px;
+    line-height: 15px;
+    &:hover{
+    	text-decoration: none;
+    }
+    & .desc{
+    	display: block;
+    	margin-top: 5px;
+    }
+	& .desc{
+		font-size: 12px;
+	}
+	&.mute{
+		background: $gray-700;
+		&:hover{
+			background: $gray-800;
+			color: $body-bg;
+		}
+	}
+	&.success{
+		background: $success;
+
+		& .sale-icon{
+			color: $yellow;
+		}
+		&:hover{
+			background: #22d44a;
+			color: $yellow;
+			text-shadow: 1px 1px 2px $black, 0 0 1em yellow;
+    		box-shadow: 0px 0px 54px yellow;
+		}
+	}
+	& .sale-icon{
+		font-size: 25px;
+    	text-align: center;
+    	margin-top: 3px;
+	}
+}
