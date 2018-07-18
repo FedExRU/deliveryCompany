@@ -47,7 +47,50 @@
 		}
 	}
 }
-// .goods-list .card{
-// 	display: block;
-// }
 
+@include media-breakpoint-only(md){
+	.top-sidebar .btn-group{
+		& button{
+			margin-bottom: 20px;
+			padding: 12px;
+		}
+	}
+	.goods-list{
+		column-count: 2;
+	}
+}
+
+@include media-breakpoint-down(sm){
+	.top-sidebar{
+		flex-wrap: wrap;
+		& .best-sellers-btn-group{
+			margin-left: auto;
+			margin-right: 0px !important;
+		}
+		& form{
+			width: 100%;
+			margin-top: 20px;
+		}
+	}
+	.goods-list{
+		column-count: 1;
+	}
+
+}
+
+@include media-breakpoint-down(xs){
+	.top-sidebar .btn-toolbar{
+		& button{
+			& .button-text{
+				display: none;
+			}
+			&:after{
+				content: attr(data-label);
+			}
+		}
+	}
+
+	.site-pagination .page-link{
+		padding: 12px;
+	}
+}

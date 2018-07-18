@@ -4,3 +4,31 @@
     position: relative;
     margin-top: -95px;
 }
+
+@include media-breakpoint-only(md){
+	.summer-sales .btn-sale{
+		text-align: left;
+		margin-bottom: 10px;
+	}
+
+	.summer-sales .success-sale-col{
+		text-align: center;
+	}
+}
+
+@include media-breakpoint-down(sm){
+	.summer-sales{
+		margin-top: 0px;
+		padding: 40px 0px;
+		& .btn-sale{
+			display: block;
+			border-bottom: 1px solid $body-bg;
+		}
+	}
+}
+
+@include media-breakpoint-down(xs){
+	.summer-sales{
+		padding: 15px;	
+	}
+}

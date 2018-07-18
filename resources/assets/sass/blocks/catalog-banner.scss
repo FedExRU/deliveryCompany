@@ -34,3 +34,44 @@
 		height: 500px;
 	}
 }
+
+@include media-breakpoint-down(md){
+	.catalog-banner{
+		& .catalog-title-wrapper{
+			& h1{
+				font-size: 1.8rem;
+			}
+			& h5{
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(sm){
+	.catalog-banner{
+		height: 255px;
+		& .catalog-title-wrapper{
+			& h1{
+				font-size: 1.4rem;
+			}
+			& h5, & h6{
+				font-size: .7rem;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(xs){
+	.catalog-banner{
+		& .container{
+			max-width: none;
+		}
+		& .catalog-title-wrapper h1{
+			font-size: 1rem;
+		}
+		& .not-displaying-title{
+			display: none;
+		}
+	}
+}

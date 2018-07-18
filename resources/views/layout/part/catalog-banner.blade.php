@@ -5,10 +5,10 @@
 				<div class="catalog-title-wrapper success">
 					<h1 class="display-6">Get ready to the summer!</h1>
 				</div>
-				<div class="catalog-title-wrapper white">
+				<div class="catalog-title-wrapper white ">
 					<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
 				</div>
-				<div class="catalog-title-wrapper success">
+				<div class="catalog-title-wrapper success not-displaying-title">
 					<h6>Lorem ipsum dolor.</h6>
 				</div>
 			</div>
