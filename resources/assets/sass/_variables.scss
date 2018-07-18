@@ -22,7 +22,11 @@ $container-max-widths: (
 // Body
 $body-bg: #f5f8fa;
 
-$primary-light: #007bff24;
+$primary-light: #80bcfc;
+
+$theme-colors: (
+    "primary-light" : $primary-light,
+) !default;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;

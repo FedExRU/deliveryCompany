@@ -1,24 +1,24 @@
 .catalog-banner{
 	background: url(/img/777597.jpg) top no-repeat;
     background-size: cover;
-	& .catalog-title-wrapper{
-		padding: 10px 15px;
-    	display: inline-block;
-    	float: left;
-    	clear: both;
-		& *{
-			color: $white;
-			margin: 0px;
-		}
-		&.success{
-			background: #007bff7a;
-		}
-		&.white{
-			background: $body-bg;
+}
 
-			& *{
-				color: $gray-800;
-			}
+.catalog-title-wrapper{
+	padding: 10px 15px;
+   	display: inline-block;
+   	float: left;
+   	clear: both;
+	& *{
+		color: $white;
+		margin: 0px;
+	}
+	&.success{
+		background: #007bff7a;
+	}
+	&.white{
+		background: $body-bg;
+		& *{
+			color: $gray-800;
 		}
 	}
 }

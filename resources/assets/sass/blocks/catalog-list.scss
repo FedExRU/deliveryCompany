@@ -5,26 +5,9 @@
 
 .goods-list .card .rating{
 	text-align: right;
-
-	& .rank-ok{
-		color: $yellow;
-	}
-
 }
 .goods-list .card .price-column{
 	float: right;
-    margin-top: 4px;
-    font-size: 20px;
-	& .curr-price{
-		color: $red;
-	}
-	& .old-price{
-		display: inline-block;
-	    margin-left: 11px;
-	    font-size: 17px;
-	    color: red;
-	    opacity: .5;
-	}
 }
 
 .site-pagination{

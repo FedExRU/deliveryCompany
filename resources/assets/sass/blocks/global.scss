@@ -32,6 +32,27 @@
 	}
 }
 
+.rating{
+	& .rank-ok{
+		color: $yellow;
+	}
+}
+
+.price-column{
+    margin-top: 4px;
+    font-size: 20px;
+	& .curr-price{
+		color: $red;
+	}
+	& .old-price{
+		display: inline-block;
+	    margin-left: 11px;
+	    font-size: 17px;
+	    color: red;
+	    opacity: .5;
+	}
+}
+
 @include media-breakpoint-up(md){
 	.btn-sale{
 		&.mute{
@@ -47,5 +68,18 @@
 	    		box-shadow: 0px 0px 54px yellow;
 			}
 		}
+	}
+}
+
+.btn-primary-light{
+    color: $white;
+    &:hover{
+    	color: $white;
+    }
+}
+
+@include media-breakpoint-down(sm){
+	.sm-none{
+		display: none;
 	}
 }

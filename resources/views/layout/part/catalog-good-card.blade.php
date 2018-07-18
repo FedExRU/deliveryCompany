@@ -14,20 +14,13 @@
         </small> 
       </h5>
       <p class="card-text">{{ $good->brief }}</p>
-      <div class="rating">
-        @if(!is_null($good->rank))
-          @for($i = 0; $i < $good->rank; $i++)
-      	   <i class="fas fa-star rank-ok"></i>
-          @endfor
-          @for($i = 0; $i < 5 - $good->rank; $i++)
-            <i class="far fa-star"></i>
-          @endfor
-        @endif
-      </div>
+        @include('layout.part.product-rank',[
+          'rank' => $good->rank
+        ])
     </div>
     <div class="card-footer">
      	<div class="btn-group" role="group" aria-label="Basic example">
-		  <a href="#" class="btn btn-outline-success" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Go to product"><i class="far fa-eye"></i></a>
+		  <a href="{{ route('catalog.show', ['id' => $good->id]) }}" class="btn btn-outline-success" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Go to product"><i class="far fa-eye"></i></a>
 		  <button type="button" class="btn btn-outline-success" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Add to cart"><i class="fas fa-cart-arrow-down"></i></button>
 		  <button type="button" class="btn btn-outline-primary" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Buy it"><i class="fas fa-credit-card"></i></button>
 		</div>
