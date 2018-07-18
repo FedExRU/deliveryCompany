@@ -19559,6 +19559,11 @@ readers do not read off random characters that represent icons */
   border-top-left-radius: 0px;
 }
 
+.prod-info nav a {
+  -webkit-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+}
+
 .prod-info .website {
   font-size: 12px;
 }

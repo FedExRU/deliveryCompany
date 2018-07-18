@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
         FormFacade::macro('namedRoute', function($routeName, $htmlTitle = null, $attributes = null, $options = null)
         {
-            $aBegin = '<a class = "'.$options['class'].(route($routeName) == url()->current() ? ' active' : '').'" href="'.route($routeName).'" >';
+            $aBegin = '<a class = "'.$options['class'].(route($routeName) == url()->current() ? ' active' : '').'" href="'.route($routeName, [], false).'" >';
             $aEnd = '</a>';
             $title = $htmlTitle;
 

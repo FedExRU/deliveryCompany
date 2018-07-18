@@ -25,6 +25,10 @@
 		}
 	}
 
+	& nav a{
+		transition: border .2s ease-in-out;
+	}
+
 	& .website{
 		font-size: 12px;
 	}
