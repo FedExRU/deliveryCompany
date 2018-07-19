@@ -8,4 +8,9 @@ use App\Traits\DataLoader;
 class Orders extends Model
 {
     use DataLoader;
+
+    public function good()
+    {
+    	return $this->belongsTo('App\Models\Goods');
+    }
 }

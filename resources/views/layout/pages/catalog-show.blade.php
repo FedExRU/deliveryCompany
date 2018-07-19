@@ -18,7 +18,8 @@
 		</div>
 		<div class="col-xs-12 col-md-6 prod-info">
 			@include('layout.part.catalog-show-tabs', [
-				'data' => $good
+				'data' => $good,
+				'order' => $order,
 			])
 		</div>
 	</div>

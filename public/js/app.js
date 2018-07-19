@@ -13883,6 +13883,7 @@ module.exports = __webpack_require__(43);
 
 __webpack_require__(13);
 __webpack_require__(64);
+__webpack_require__(65);
 
 window.Vue = __webpack_require__(36);
 
@@ -47427,6 +47428,16 @@ if (false) {
 
 $(document).ready(function () {
 	$('[data-toggle="popover"]').popover();
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+	$('form .has-errors input').on('click', function () {
+		$(this).parents('.form-group').removeClass('has-errors');
+	});
 });
 
 /***/ })

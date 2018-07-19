@@ -19083,6 +19083,14 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+form .has-errors input {
+  border-color: #dc3545;
+}
+
+form .has-errors .invalid-feedback {
+  display: block;
+}
+
 .btn-sale {
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;

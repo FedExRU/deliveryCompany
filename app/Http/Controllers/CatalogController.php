@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Goods;
+use App\Models\Orders;
 
 class CatalogController extends Controller
 {
@@ -32,13 +33,15 @@ class CatalogController extends Controller
     public function show($id)
     {
         $good = Goods::find($id);
+        $order = new Orders();
 
         if(empty($good))
             abort(404, 'Sorry, but the product which are you looking for not found...');
 
         return view('layout.pages.catalog-show', [
-            'title' => $good->name,
-            'good' => $good,
+            'title'     => $good->name,
+            'good'      => $good,
+            'order'     => $order,
         ]);
     }
 }

@@ -27,9 +27,30 @@ class OrderRequest extends FormRequest
             'firstName'     => 'required|string',
             'city'          => 'required|string',
             'state'         => 'required|string',
-            'zip'           => 'numeric|digits:3',
+            'zip'           => 'numeric|digits_between:3,5',
             'agreenment'    => 'required|boolean',
             'email'         => 'required|email',
         ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'agreenment.required' => 'Please, agree with the terms and conditions of the site',
+        ];
+    }
+
+    protected function getValidatorInstance()
+    {
+        $validator = parent::getValidatorInstance();
+
+        \Session::flash('formTab',true);
+
+        return $validator;
     }
 }
