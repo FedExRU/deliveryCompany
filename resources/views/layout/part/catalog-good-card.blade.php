@@ -1,3 +1,4 @@
+
 @if(!empty($good))
 
 <div class="card">

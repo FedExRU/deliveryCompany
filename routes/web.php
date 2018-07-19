@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
 Route::resource('catalog', 'CatalogController', ['except' => [
     'create', 'store', 'update', 'destroy', 'edit'
 ]]);

@@ -8,7 +8,7 @@ trait DataLoader
 	{
         foreach($attributes as $attribute => $value)
         {   
-            if(\Schema::hasColumn(app(self::class)->getTable(), $attribute))
+            if(property_exists(self::class, $attribute) || \Schema::hasColumn(app(self::class)->getTable(), $attribute))
                 $this->$attribute = $value;
         }
 

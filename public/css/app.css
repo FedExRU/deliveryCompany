@@ -19501,6 +19501,11 @@ form .has-errors .invalid-feedback {
   padding: 0.5rem 0.75rem;
 }
 
+.top-sidebar .btn-toolbar .a-with-span {
+  line-height: 35px;
+  max-height: 45px;
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .top-sidebar .btn-group button {
     margin-bottom: 20px;
@@ -19536,11 +19541,13 @@ form .has-errors .invalid-feedback {
 }
 
 @media (max-width: 575.98px) {
-  .top-sidebar .btn-toolbar button .button-text {
+  .top-sidebar .btn-toolbar button .button-text,
+  .top-sidebar .btn-toolbar .a-with-span .button-text {
     display: none;
   }
 
-  .top-sidebar .btn-toolbar button:after {
+  .top-sidebar .btn-toolbar button:after,
+  .top-sidebar .btn-toolbar .a-with-span:after {
     content: attr(data-label);
   }
 

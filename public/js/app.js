@@ -13884,6 +13884,7 @@ module.exports = __webpack_require__(43);
 __webpack_require__(13);
 __webpack_require__(64);
 __webpack_require__(65);
+__webpack_require__(66);
 
 window.Vue = __webpack_require__(36);
 
@@ -47437,6 +47438,16 @@ $(document).ready(function () {
 $(document).ready(function () {
 	$('form .has-errors input').on('click', function () {
 		$(this).parents('.form-group').removeClass('has-errors');
+	});
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+	$('#go-to-order').click(function () {
+		$('#order-tab').trigger('click');
 	});
 });
 

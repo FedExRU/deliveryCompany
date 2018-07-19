@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Goods;
 use App\Models\Orders;
+use App\Generic\GoodsSearch;
 
 class CatalogController extends Controller
 {
@@ -13,9 +14,12 @@ class CatalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-        $goods = Goods::paginate(15);
+        if(!empty($attributes = $request->all()))
+            $goods = GoodsSearch::search($attributes, 15);
+        else
+            $goods = Goods::paginate(15);
 
         return view('layout.pages.catalog-index', [
             'title' => 'Catalog',
@@ -33,7 +37,7 @@ class CatalogController extends Controller
     public function show($id)
     {
         $good = Goods::find($id);
-        
+
         $order = new Orders();
 
         if(empty($good))

@@ -31,6 +31,13 @@
 	}
 }
 
+.top-sidebar .btn-toolbar{
+	& .a-with-span{
+		line-height: 35px;
+		max-height: 45px;
+	}
+}
+
 @include media-breakpoint-only(md){
 	.top-sidebar .btn-group{
 		& button{
@@ -63,7 +70,7 @@
 
 @include media-breakpoint-down(xs){
 	.top-sidebar .btn-toolbar{
-		& button{
+		& button, & .a-with-span{
 			& .button-text{
 				display: none;
 			}

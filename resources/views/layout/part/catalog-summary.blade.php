@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button class="btn btn-primary-light">
+						<button class="btn btn-primary-light" id="go-to-order">
 							Buy it
 						</button>
 					</td>

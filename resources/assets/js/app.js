@@ -8,6 +8,7 @@
 require('./bootstrap');
 require('./custom/global');
 require('./custom/form');
+require('./custom/catalog-show');
 
 window.Vue = require('vue');
 
