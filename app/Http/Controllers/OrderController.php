@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Models\Orders;
 use App\Http\Requests\OrderRequest;
-use App\Models\StatusInfo;
+use App\Models\{Orders, StatusInfo};
+use App\Mail\OrderShipped;
 use Carbon\Carbon;
 
 class OrderController extends Controller
@@ -22,6 +23,8 @@ class OrderController extends Controller
     	{
     		$order->save();
 
+    		Mail::to($order->email)->send(new OrderShipped($order));
+    		
     		\Session::flash('orderStatus', true);
     		
     	} 

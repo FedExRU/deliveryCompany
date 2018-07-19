@@ -5,6 +5,12 @@
     margin-top: -95px;
 }
 
+@include media-breakpoint-up(lg){
+	.summer-sales .btn-sale{
+		display: block;
+	}
+}
+
 @include media-breakpoint-only(md){
 	.summer-sales .btn-sale{
 		text-align: left;

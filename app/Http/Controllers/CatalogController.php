@@ -33,6 +33,7 @@ class CatalogController extends Controller
     public function show($id)
     {
         $good = Goods::find($id);
+        
         $order = new Orders();
 
         if(empty($good))
