@@ -13867,7 +13867,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -13882,11 +13882,11 @@ module.exports = __webpack_require__(43);
  */
 
 __webpack_require__(13);
-__webpack_require__(64);
-__webpack_require__(65);
-__webpack_require__(66);
+__webpack_require__(36);
+__webpack_require__(37);
+__webpack_require__(38);
 
-window.Vue = __webpack_require__(36);
+window.Vue = __webpack_require__(39);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13894,7 +13894,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('example-component', __webpack_require__(42));
 
 var app = new Vue({
   el: '#app'
@@ -35942,6 +35942,127 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+	$('[data-toggle="popover"]').popover();
+});
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+
+  $(document).on('click', 'form .has-errors input', function () {
+    $(this).parents('.form-group').removeClass('has-errors');
+  });
+
+  $('.fast-buy').click(function (e) {
+    var button = $(this);
+    e.preventDefault();
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "/order/modal",
+      data: {
+        'good_id': button.attr('data-good-id')
+      },
+      method: 'POST',
+      success: function success(form) {
+        $(form).modal();
+      },
+      error: function error(json) {
+        console.log(json);
+      }
+    });
+  });
+
+  $(document).on('hidden.bs.modal', '#modal-form', function () {
+    $('#modal-form').remove();
+  });
+
+  $(document).on('submit', '.ajax-form', function (e) {
+    e.preventDefault();
+    var form = $(this),
+        data = form.serializeArray();
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: form.attr('action'),
+      data: data,
+      method: form.attr('method'),
+      success: function success(responce) {
+        console.log(responce);
+      },
+      error: function error(errors) {
+        console.log(errors);
+        presentFormErrors(form, errors.responseJSON.errors);
+      }
+    });
+  });
+
+  $(document).on('focus', '.ajax-error-popover', function () {
+    $(this).popover('hide');
+  });
+
+  $(document).on('hidden.bs.popover', '.ajax-error-popover', function () {
+    $(this).popover('dispose');
+  });
+
+  function presentFormErrors(form, errors) {
+    console.log(errors);
+    $(form).find('input').each(function () {
+      var input = $(this),
+          textError = errors[input.attr('name')],
+          formGroup = input.parents('.form-group');
+      if (typeof textError !== 'undefined') {
+
+        var popoverClass = 'ajax-error-popover',
+            popoverSpesificClass = popoverClass + '-' + input.attr('name');
+
+        input.addClass(popoverClass).addClass(popoverSpesificClass);
+
+        console.log(textError);
+
+        $('.' + popoverSpesificClass).popover({
+          content: textError[0],
+          placement: 'top'
+        });
+
+        $('.' + popoverSpesificClass).popover('show');
+
+        changePopoverBackground($('.' + popoverSpesificClass).attr('aria-describedby'), 'alert-danger');
+
+        formGroup.addClass('has-errors');
+      }
+    });
+  }
+
+  function changePopoverBackground(popoverId, $class) {
+    var popover = $('#' + popoverId);
+    popover.addClass($class).find('.popover-body').addClass($class);
+  }
+});
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+	$('#go-to-order').click(function () {
+		$('#order-tab').trigger('click');
+	});
+});
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46904,10 +47025,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(37).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46963,7 +47084,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(38);
+__webpack_require__(41);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -46977,7 +47098,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47170,15 +47291,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(40)
+var normalizeComponent = __webpack_require__(43)
 /* script */
-var __vue_script__ = __webpack_require__(41)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(42)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47217,7 +47338,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -47326,7 +47447,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47355,7 +47476,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47398,58 +47519,10 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-	$('[data-toggle="popover"]').popover();
-});
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-	$('form .has-errors input').on('click', function () {
-		$(this).parents('.form-group').removeClass('has-errors');
-	});
-});
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-	$('#go-to-order').click(function () {
-		$('#order-tab').trigger('click');
-	});
-});
 
 /***/ })
 /******/ ]);

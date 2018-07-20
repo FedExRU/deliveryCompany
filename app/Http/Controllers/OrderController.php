@@ -30,11 +30,17 @@ class OrderController extends Controller
     	} 
     	catch (\Exception $e) 
     	{
-    		\Session::flash('orderStatus', false);
+            if(!$request->ajax())
+    		  \Session::flash('orderStatus', false);
     	}
 
     	if(!$request->ajax())
 	    	return redirect()->route('order.status', ['id' => $order->id]);
+        else
+            return response()->json([
+                'status' => 'OK',
+                'order' => $order->toJson(),
+            ]);
     }
 
     public function status($id = null)

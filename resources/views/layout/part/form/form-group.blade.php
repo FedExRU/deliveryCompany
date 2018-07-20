@@ -16,5 +16,7 @@
       	{{ Form::$type($name, null, ['class' => 'form-control', 'placeholder' => $label, 'id' => 'input-'.$name]) }}
       </div>
   @endif
-  @include('errors.form-message-error', ['inputName' => $name])
+  @if(isset($ajaxForm) && !$ajaxForm)
+    @include('errors.form-message-error', ['inputName' => $name])
+  @endif
 </div>

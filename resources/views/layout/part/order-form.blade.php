@@ -1,6 +1,7 @@
 {!! Form::model($order, [
   'url' => route('order.send', [], false),
-  'novalidate'
+  'novalidate',
+  'class' => 'app-form'.( isset($ajaxForm) && $ajaxForm ? ' ajax-form' : '')
   ]) 
 !!}
   {{ Form::hidden('good_id', $good->id) }}
@@ -9,14 +10,16 @@
       @include('layout.part.form.form-group', [
         'name'  => 'firstName',
         'label' => 'First Name',
-        'type'  => 'text'
+        'type'  => 'text',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
     <div class="col-xs-12 col-lg-4 ">
       @include('layout.part.form.form-group', [
         'name'  => 'lastName',
         'label' => 'Last Name',
-        'type'  => 'text'
+        'type'  => 'text',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
     <div class="col-xs-12 col-lg-4">
@@ -25,6 +28,7 @@
         'label' => 'Email',
         'type'  => 'text',
         'inputPrepend' => '@',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
   </div>
@@ -34,6 +38,7 @@
         'name'  => 'city',
         'label' => 'City',
         'type'  => 'text',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
     <div class="col-xs-12 col-lg-3">
@@ -41,6 +46,7 @@
         'name'  => 'state',
         'label' => 'State',
         'type'  => 'text',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
     <div class="col-xs-12 col-lg-3">
@@ -48,6 +54,7 @@
         'name'  => 'zip',
         'label' => 'Zip',
         'type'  => 'number',
+        'ajaxForm' => isset($ajaxForm) && $ajaxForm,
       ])
     </div>
   </div>
@@ -55,6 +62,7 @@
       'name'  => 'agreenment',
       'label' => 'Agree to terms and conditions',
       'type'  => 'checkbox',
+      'ajaxForm' => isset($ajaxForm) && $ajaxForm,
   ])
   {{ Form::submit('Send', ['class' => 'btn btn-primary-light']) }}
 

@@ -64,6 +64,14 @@ form{
 	}
 }
 
+.popover.alert-danger{
+	& .arrow{
+		&:after{
+			border-top-color: #f8d7da;
+		}
+	}
+}
+
 @include media-breakpoint-up(md){
 	.btn-sale{
 		&.mute{

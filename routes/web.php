@@ -21,3 +21,5 @@ Route::resource('catalog', 'CatalogController', ['except' => [
 Route::post('order', 'OrderController@store')->name('order.send');
 
 Route::get('status/{order?}', 'OrderController@status')->name('order.status');
+
+Route::post('order/modal', 'WidgetController@order')->name('order.modal');

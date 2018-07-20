@@ -19153,6 +19153,10 @@ form .has-errors .invalid-feedback {
   opacity: .5;
 }
 
+.popover.alert-danger .arrow:after {
+  border-top-color: #f8d7da;
+}
+
 @media (min-width: 768px) {
   .btn-sale.mute:hover {
     background: #343a40;

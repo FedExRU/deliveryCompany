@@ -23,7 +23,7 @@
      	<div class="btn-group" role="group" aria-label="Basic example">
 		  <a href="{{ route('catalog.show', ['id' => $good->id], false) }}" class="btn btn-outline-success" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Go to product"><i class="far fa-eye"></i></a>
 		  <button type="button" class="btn btn-outline-success" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Add to cart"><i class="fas fa-cart-arrow-down"></i></button>
-		  <button type="button" class="btn btn-outline-primary" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Buy it"><i class="fas fa-credit-card"></i></button>
+		  <button type="button" class="btn btn-outline-primary fast-buy" data-trigger="hover" data-placement="top" data-toggle="popover" data-content="Buy it" data-good-id="{{ $good->id }}"><i class="fas fa-credit-card"></i></button>
 		</div>
 		<div class="price-column">
 			<span class="curr-price">
