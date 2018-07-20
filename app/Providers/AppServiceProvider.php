@@ -27,6 +27,19 @@ class AppServiceProvider extends ServiceProvider
             return  $aBegin.$title.$aEnd;
         });
 
+        FormFacade::macro('orderingPaginateUrl', function($url){
+
+            $orderingUrl = $url;
+
+            if(!is_null($rank = app('request')->input('sortRank')))
+                $orderingUrl .= '&sortRank='.$rank;
+
+            if(!is_null($price = app('request')->input('sortPrice')))
+                $orderingUrl .= '&sortPrice='.$price;
+
+            return $orderingUrl;
+        });
+
     }
 
     /**

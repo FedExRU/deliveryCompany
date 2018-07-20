@@ -27,11 +27,11 @@
 		</div>
 		<div class="price-column">
 			<span class="curr-price">
-           {{ $good->price }} <i class="fas fa-dollar-sign"></i>
+          <i class="fas fa-dollar-sign"></i> {{ $good->price }}
       </span>
       @if(!is_null($good->old_price))
       <span class="old-price">
-          <strike> {{ $good->old_price }} $</strike>
+          <strike> $ {{ $good->old_price }}</strike>
       </span>
       @endif
 		</div>

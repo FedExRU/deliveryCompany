@@ -8,13 +8,7 @@
             </li>
         @else
             <li class="page-item">
-                <a class="page-link" href="
-                {{ $paginator->previousPageUrl()
-                    .(!is_null(app('request')->input('sortRank')) ? 
-                    '&sortRank='.app('request')->input('sortRank') 
-                    : ''
-                    ) }}
-                " rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                <a class="page-link" href="{{ Form::orderingPaginateUrl($paginator->previousPageUrl()) }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
             </li>
         @endif
 
@@ -31,11 +25,7 @@
                     @if ($page == $paginator->currentPage())
                         <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
                     @else
-                        <li class="page-item"><a class="page-link" href="{{ $url
-                            .(!is_null(app('request')->input('sortRank')) ? 
-                            '&sortRank='.app('request')->input('sortRank') 
-                        : ''
-                        ) }}">{{ $page }}</a></li>
+                        <li class="page-item"><a class="page-link" href="{{ Form::orderingPaginateUrl($url) }}">{{ $page }}</a></li>
                     @endif
                 @endforeach
             @endif
@@ -44,11 +34,7 @@
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
             <li class="page-item">
-                <a class="page-link" href="{{ $paginator->nextPageUrl()
-                    .(!is_null(app('request')->input('sortRank')) ? 
-                    '&sortRank='.app('request')->input('sortRank') 
-                    : ''
-                    ) }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                <a class="page-link" href="{{ Form::orderingPaginateUrl($paginator->nextPageUrl()) }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
             </li>
         @else
             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
