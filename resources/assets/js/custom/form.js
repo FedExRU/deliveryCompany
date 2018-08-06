@@ -35,17 +35,14 @@ $(document).ready(function(){
     e.preventDefault();
     var form = $(this),
         data = form.serializeArray();
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
+    prepareAjax();
     $.ajax({
       url: form.attr('action'),
       data: data,
       method: form.attr('method'),
       success: function(responce){
-        console.log(responce);
+        $('#modal-form').modal('hide');
+        showSuccessModalOrder(responce);
       },
       error: function( errors ){
         presentFormErrors(form, errors.responseJSON.errors);
@@ -60,6 +57,34 @@ $(document).ready(function(){
   $(document).on('hidden.bs.popover', '.ajax-error-popover', function(){
     $(this).popover('dispose');
   })
+
+  function showSuccessModalOrder(order){
+    console.log( order.order);
+    console.log('------------------------');
+    prepareAjax();
+    $.ajax({
+      url: '/order/success',
+      data: {
+        'order' : order.order
+      },
+      method: 'POST',
+      success: function(form){
+        $(form).modal();
+        console.log(form);
+      },
+      error: function( errors ){
+        console.log(errors);
+      },    
+    });
+  }
+
+  function prepareAjax(){
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+  }
 
   function presentFormErrors(form, errors){
     $(form).find('input').each(function(){

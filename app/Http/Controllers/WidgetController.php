@@ -12,15 +12,25 @@ use App\Models\{
     Orders
 };
 
+use Carbon\Carbon;
+
 class WidgetController extends Controller
 {
     public function order(AjaxOrderRequest $request)
     {
     	if($request->ajax())
     	{
-    		$good = Goods::find($request->input('good_id'));
+            try {
 
-    		$order = new Orders();
+    		  $good = Goods::find($request->input('good_id'));
+
+    		  $order = new Orders();
+
+            } catch (Exception $e) {
+                /**
+                 * @todo exception handler
+                 */
+            }
 
     		return view('layout.part.modal-form',[
     			'good' => $good,
@@ -33,8 +43,28 @@ class WidgetController extends Controller
     {
         if($request->ajax())
         {
-            $object = (array)json_decode($request->input('good'));
-            $collection = Goods::hydrate($object);
+            try {
+
+                $orderData = (array)json_decode($request->input('order'));
+
+                $orderHydrate = Orders::hydrate([$orderData]);
+
+                $orderHydrate->flatten();
+
+                $order = $orderHydrate[0];
+
+                $orderDate = Carbon::parse($order->created_at)->format('d.m.Y H:i');
+                
+            } catch (Exception $e) {
+                /**
+                 * @todo exception handler
+                 */
+            }
+
+            return view('layout.part.modal-order-success', [
+                'order'     => $order,
+                'orderDate' => $orderDate,
+            ]);
         }
     }
 }

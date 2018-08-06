@@ -35989,20 +35989,16 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this),
         data = form.serializeArray();
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
+    prepareAjax();
     $.ajax({
       url: form.attr('action'),
       data: data,
       method: form.attr('method'),
       success: function success(responce) {
-        console.log(responce);
+        $('#modal-form').modal('hide');
+        showSuccessModalOrder(responce);
       },
       error: function error(errors) {
-        console.log(errors);
         presentFormErrors(form, errors.responseJSON.errors);
       }
     });
@@ -36016,8 +36012,35 @@ $(document).ready(function () {
     $(this).popover('dispose');
   });
 
+  function showSuccessModalOrder(order) {
+    console.log(order.order);
+    console.log('------------------------');
+    prepareAjax();
+    $.ajax({
+      url: '/order/success',
+      data: {
+        'order': order.order
+      },
+      method: 'POST',
+      success: function success(form) {
+        $(form).modal();
+        console.log(form);
+      },
+      error: function error(errors) {
+        console.log(errors);
+      }
+    });
+  }
+
+  function prepareAjax() {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+  }
+
   function presentFormErrors(form, errors) {
-    console.log(errors);
     $(form).find('input').each(function () {
       var input = $(this),
           textError = errors[input.attr('name')],
@@ -36028,8 +36051,6 @@ $(document).ready(function () {
             popoverSpesificClass = popoverClass + '-' + input.attr('name');
 
         input.addClass(popoverClass).addClass(popoverSpesificClass);
-
-        console.log(textError);
 
         $('.' + popoverSpesificClass).popover({
           content: textError[0],
